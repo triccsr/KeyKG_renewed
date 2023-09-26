@@ -13,6 +13,7 @@ class BC{
     double *delta;
     double *dis;
     bool *ok;
+    std::vector<VType> *pred;
 
     const WeightedGraph &ww;
     double *bc;
