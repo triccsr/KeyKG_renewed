@@ -1,0 +1,216 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "FibHeap",
+					"jsonFile" : "directory-FibHeap-Debug-66cf59a43169bb245157.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "FibHeap",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "RandomDouble",
+					"jsonFile" : "directory-RandomDouble-Debug-23175f16c23d54ed9161.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "RandomDouble",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "Timer",
+					"jsonFile" : "directory-Timer-Debug-07e9798a4a08151a32d4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Timer",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "WeightedGraph",
+					"jsonFile" : "directory-WeightedGraph-Debug-0e83e4e7e1e39ba7ae46.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "WeightedGraph",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "HubLabel",
+					"childIndexes" : 
+					[
+						6
+					],
+					"jsonFile" : "directory-HubLabel-Debug-554b5eb2b0176996e132.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "HubLabel",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "HubLabel/BC",
+					"jsonFile" : "directory-HubLabel.BC-Debug-b73e0ab92118104ef35f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "HubLabel/BC",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"name" : "KeyKG",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 6,
+					"id" : "BC::@408420f5d492355b01bd",
+					"jsonFile" : "target-BC-Debug-55e21c5ec05bba511bf9.json",
+					"name" : "BC",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "FibHeap::@7c3373fd355d0b517deb",
+					"jsonFile" : "target-FibHeap-Debug-0d2b2688ea66c4d0a144.json",
+					"name" : "FibHeap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "HubLabel::@9964292e8312f09ecd7c",
+					"jsonFile" : "target-HubLabel-Debug-0b432f78c486d35d2fd9.json",
+					"name" : "HubLabel",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "KeyKG::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-KeyKG-Debug-237548b6529bc5e092cc.json",
+					"name" : "KeyKG",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "RandomDouble::@5bc66d9f6fcf6358a2c9",
+					"jsonFile" : "target-RandomDouble-Debug-05dd7c7669d5365c001b.json",
+					"name" : "RandomDouble",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Timer::@c0ec749ccf2d31a4281f",
+					"jsonFile" : "target-Timer-Debug-2eed4e332e3377295ea4.json",
+					"name" : "Timer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "WeightedGraph::@80a41bff931eeec30e2b",
+					"jsonFile" : "target-WeightedGraph-Debug-83449e3fef8e6637b5aa.json",
+					"name" : "WeightedGraph",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/triccsr/CLionProjects/KeyKG_renewed/cmake-build-debug",
+		"source" : "/home/triccsr/CLionProjects/KeyKG_renewed"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

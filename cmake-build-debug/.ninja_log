@@ -1,0 +1,12 @@
+# ninja log v5
+1	245	1695543676337960145	WeightedGraph/CMakeFiles/WeightedGraph.dir/WeightedGraph.cpp.o	5e2e52f4efa3b463
+1	29	1695541003987429223	RandomDouble/libRandomDouble.a	d11c2c1d0e6888b2
+1	151	1695543676244626602	CMakeFiles/KeyKG.dir/main.cpp.o	d064f31f8074115f
+0	183	1695540363925287851	RandomDouble/CMakeFiles/RandomDouble.dir/RandomDouble.cpp.o	2a770b1fc5e7f404
+1	29	1695541003987429223	Timer/libTimer.a	78915a432407f822
+0	15	1695697441311085713	build.ninja	98efb677228dc939
+245	276	1695543676367960213	WeightedGraph/libWeightedGraph.a	6df1543f8c3b4421
+1	17	1695543676111292967	WeightedGraph/CMakeFiles/WeightedGraph.dir/WeightedOutEdge.cpp.o	821f81f78056bce
+0	8	1695541003967430819	FibHeap/libFibHeap.a	456c4e2ea8e85d19
+0	51	1695540363791913403	Timer/CMakeFiles/Timer.dir/Timer.cpp.o	e1c7ef557f3f28a9
+276	315	1695543676407960302	KeyKG	663d14d941a5994f

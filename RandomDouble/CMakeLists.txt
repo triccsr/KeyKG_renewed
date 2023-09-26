@@ -1,0 +1,2 @@
+add_library(RandomDouble RandomDouble.cpp)
+target_include_directories(RandomDouble INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
