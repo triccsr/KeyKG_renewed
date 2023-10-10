@@ -9,7 +9,6 @@
 #include <cstdint>
 #include <vector>
 #include "WeightedOutEdge.h"
-#include "Timer.h"
 #include "WeightedGraphDef.h"
 
 class WeightedGraph {
@@ -19,12 +18,12 @@ class WeightedGraph {
     void load_weighted_graph_file(FILE* weightedGraphFile);
 public:
     WeightedGraph()=default;
-    explicit WeightedGraph(FILE* weightedGraphFile);
+    explicit WeightedGraph(const char* weightedGraphFilePath);
     ~WeightedGraph();
     VType vertex_count() const;
-    VType outDegreeOf(VType ver) const;
-    const std::vector<WeightedOutEdge> & outEdgesOf(VType ver) const;
-    static void gen_weighted_graph_file(FILE* unweightedGraphFile,FILE* dstFile,uint32_t seedU = 19260817); //gen weighted graph file from unweighted graph file
+    VType out_degree_of(VType ver) const;
+    const std::vector<WeightedOutEdge> & out_edges_of(VType ver) const;
+    static void gen_weighted_graph_file(const char* unweightedGraphFilePath,const char* dstFilePath,uint32_t seedU = 19260817); //gen weighted graph file from unweighted graph file
 };
 
 

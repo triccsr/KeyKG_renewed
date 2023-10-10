@@ -1,0 +1,2 @@
+add_subdirectory(RandomDouble)
+add_subdirectory(Timer)

@@ -42,7 +42,7 @@ void BC::add_delta_from(int src) {
 		catch (std::overflow_error const &ex) {
 			std::cerr << "delta overflow: vertex index" << v << std::endl;
 		}
-		for (WeightedOutEdge woe : ww.outEdgesOf(v)) {
+		for (WeightedOutEdge woe : ww.out_edges_of(v)) {
 			double newDis = dis[v] + woe.weight();
 			if (newDis < dis[woe.to()]) {
 				dis[woe.to()] = newDis;
@@ -83,7 +83,7 @@ BC::BC(const WeightedGraph &argWW, int pivotNum) : ww(argWW) {
 	auto degreePairs = new std::pair<VType, VType>[ww.vertex_count()];
 	for (VType v = 0; v < ww.vertex_count(); ++v) {
 		bc[v] = 0.0;
-		degreePairs[v] = std::make_pair(ww.outDegreeOf(v), v);
+		degreePairs[v] = std::make_pair(ww.out_degree_of(v), v);
 	}
 	std::sort(degreePairs, degreePairs + ww.vertex_count(), std::greater<std::pair<VType, VType>>());
 	for (int i = 0; i < pivotNum; ++i) {
