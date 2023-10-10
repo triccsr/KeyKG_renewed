@@ -1,6 +1,7 @@
 add_library(HubLabel
         HubLabel.cpp
-        HubLabel.h)
+        HubLabel.h
+        HLType.h)
 add_subdirectory(BC)
 
 target_link_libraries(HubLabel PRIVATE BC)

@@ -6,8 +6,14 @@
 #define KEYKG_HUBLABEL_H
 
 
-class HubLabel {
+#include <cstdio>
+#include "WeightedGraph.h"
 
+class HubLabel {
+  constexpr static double doubleINF=1e16;
+public:
+    static void gen_hub_label_file(const WeightedGraph &ww, int pivotNum);
+    void load_hub_label_file(FILE* file);
 };
 
 
