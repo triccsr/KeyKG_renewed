@@ -10,11 +10,12 @@
 #include <vector>
 #include "WeightedOutEdge.h"
 #include "WeightedGraphDef.h"
+#include "WeightedEdge.h"
 
 class WeightedGraph {
     VType n;
     std::vector<WeightedOutEdge> *outEdges;
-    void add_edge(VType src,VType dst,double weight,EType edgeIndex);
+    std::vector<WeightedEdge> edges;
     void load_weighted_graph_file(FILE* weightedGraphFile);
 public:
     WeightedGraph()=default;

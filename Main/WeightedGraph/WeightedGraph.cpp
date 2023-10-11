@@ -11,7 +11,7 @@
 
 WeightedGraph::WeightedGraph(const char *weightedGraphFilePath) {
   outEdges = nullptr;
-  FILE* weightedGraphFile=fopen(weightedGraphFilePath,"r");
+  FILE *weightedGraphFile = fopen(weightedGraphFilePath, "r");
   load_weighted_graph_file(weightedGraphFile);
   fclose(weightedGraphFile);
 }
@@ -19,20 +19,19 @@ WeightedGraph::~WeightedGraph() {
   delete[] outEdges;
 }
 
-void WeightedGraph::add_edge(VType src, VType dst, double weight, EType edgeIndex) {
-  outEdges[src].emplace_back(dst, weight, edgeIndex);
-}
 void WeightedGraph::load_weighted_graph_file(FILE *weightedGraphFile) {
   delete[] outEdges;
   EType m;
   fscanf(weightedGraphFile, "%d%d", &n, &m);
   outEdges = new std::vector<WeightedOutEdge>[n];
-  for (VType i = 0; i < m; ++i) {
+  edges.resize(static_cast<unsigned long long int>(m));
+  for (EType i = 0; i < m; ++i) {
     VType u, v;
     double w;
     fscanf(weightedGraphFile, "%d%d%lf", &u, &v, &w);
     outEdges[u].emplace_back(v, w, i);
     outEdges[v].emplace_back(u, w, i);
+    edges[i] = WeightedEdge(i, u, v, w);
   }
   for (VType i = 0; i < n; ++i) {
     outEdges[i].shrink_to_fit();
@@ -53,16 +52,16 @@ void WeightedGraph::gen_weighted_graph_file(const char *unweightedGraphFilePath,
   FILE *unweightedGraphFile = fopen(unweightedGraphFilePath, "r");
 
   FILE *dstFile = fopen(dstFilePath, "w");
-  try{
-    if(unweightedGraphFile== nullptr) {
-      throw std::invalid_argument(unweightedGraphFilePath);
+  try {
+    if (unweightedGraphFile == nullptr) {
+      throw std::invalid_argument("File not found: " + std::string(unweightedGraphFilePath));
     }
-    if(dstFile== nullptr){
-      throw std::invalid_argument(dstFilePath);
+    if (dstFile == nullptr) {
+      throw std::invalid_argument("Cannot create file: " + std::string(dstFilePath));
     }
   }
-  catch (const std::invalid_argument &exc){
-    std::cerr<<"Path not found: "<<exc.what()<<std::endl;
+  catch (const std::invalid_argument &exc) {
+    std::cerr << exc.what() << std::endl;
   }
   std::vector<std::pair<VType, VType> > uwEdges;
   VType u, v;

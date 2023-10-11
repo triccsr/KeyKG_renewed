@@ -7,14 +7,14 @@
 #include "WeightedGraphDef.h"
 class HLType {
   VType _label;
-  VType _prev; //the previous vertex of the path from label to current
+  VType _prevEdge; //the previous edge index of the path from label to current
   double _dist; //the distance from label to current
  public:
   HLType() = delete;
-  HLType(VType label, VType prev, double dist) : _label(label), _prev(prev), _dist(dist) {}
+  HLType(VType label, VType prevEdge, double dist) : _label(label), _prevEdge(prevEdge), _dist(dist) {}
   VType label() const { return _label; }
+  VType previous_edge() const { return _prevEdge; }
   double dist() const { return _dist; }
-  VType prev() const { return _prev; }
   bool operator < (const HLType &hl)const{
     return _label<hl._label;
   }
