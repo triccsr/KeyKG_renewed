@@ -6,6 +6,7 @@
 #define KEYKG_UTILS_TRYFILEPTR_TRYFILEPTR_H_
 
 #include <cstdio>
+
 class OpenFile {
  public:
   static FILE* open_r(const char *rFilePath);

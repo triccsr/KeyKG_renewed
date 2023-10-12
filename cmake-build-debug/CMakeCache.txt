@@ -260,7 +260,7 @@ HubLabelGenerator_BINARY_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed/c
 HubLabelGenerator_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
-HubLabelGenerator_LIB_DEPENDS:STATIC=general;OpenFile;
+HubLabelGenerator_LIB_DEPENDS:STATIC=general;OpenFile;general;WeightedGraph;
 
 //Value Computed by CMake
 HubLabelGenerator_SOURCE_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed/HubLabelGenerator

@@ -4,6 +4,7 @@
 
 #ifndef KEYKG_HUBLABELGENERATOR_HUBLABELGENERATORABSTRACT_HUBLABELGENERATORABSTRACT_H_
 #define KEYKG_HUBLABELGENERATOR_HUBLABELGENERATORABSTRACT_HUBLABELGENERATORABSTRACT_H_
+
 class HubLabelGeneratorAbstract{
  public:
   virtual void gen_hub_label_file(const char* dstPath,const char *wgFilePath)=0;

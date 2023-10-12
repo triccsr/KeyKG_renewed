@@ -3,4 +3,6 @@ add_executable(Main main.cpp
         Run.h)
 add_subdirectory(HubLabel)
 add_subdirectory(WeightedGraph)
-target_link_libraries(Main PUBLIC HubLabel WeightedGraph HubLabelGenerator)
+add_subdirectory(Utils)
+add_subdirectory(HubLabelGenerator)
+target_link_libraries(Main PRIVATE HubLabelGenerator)

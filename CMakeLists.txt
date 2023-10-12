@@ -6,6 +6,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 
 add_compile_options(-Wall -Wextra -Wconversion -Wshadow -fdiagnostics-color=always)
 
-add_subdirectory(Utils)
 add_subdirectory(Main)
-add_subdirectory(HubLabelGenerator)
