@@ -1,2 +1,3 @@
 add_subdirectory(RandomDouble)
 add_subdirectory(Timer)
+add_subdirectory(OpenFile)

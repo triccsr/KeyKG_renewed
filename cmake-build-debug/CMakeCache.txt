@@ -251,6 +251,21 @@ CMAKE_STRIP:FILEPATH=C:/Users/tricc/AppData/Local/Programs/CLion/bin/mingw/bin/s
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Dependencies for the target
+DijkstraBased_LIB_DEPENDS:STATIC=general;HubLabelGeneratorAbstract;
+
+//Value Computed by CMake
+HubLabelGenerator_BINARY_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/HubLabelGenerator
+
+//Value Computed by CMake
+HubLabelGenerator_IS_TOP_LEVEL:STATIC=OFF
+
+//Dependencies for the target
+HubLabelGenerator_LIB_DEPENDS:STATIC=general;OpenFile;
+
+//Value Computed by CMake
+HubLabelGenerator_SOURCE_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed/HubLabelGenerator
+
+//Dependencies for the target
 HubLabel_LIB_DEPENDS:STATIC=general;BC;
 
 //Value Computed by CMake
@@ -376,7 +391,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

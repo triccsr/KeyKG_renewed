@@ -8,3 +8,4 @@ add_compile_options(-Wall -Wextra -Wconversion -Wshadow -fdiagnostics-color=alwa
 
 add_subdirectory(Utils)
 add_subdirectory(Main)
+add_subdirectory(HubLabelGenerator)
