@@ -13,9 +13,9 @@ class WeightedEdge{
   WeightedEdge()=default;
   WeightedEdge(EType edgeIndex,VType u,VType v,double weight):
   _edgeIndex(edgeIndex),_u(u),_v(v),_weight(weight){}
-  EType edge_index(){return _edgeIndex;}
-  VType u(){return _u;}
-  VType v(){return _v;}
-  double weight(){return _weight;}
+  EType edge_index() const{return _edgeIndex;}
+  VType u() const{return _u;}
+  VType v() const{return _v;}
+  double weight() const{return _weight;}
 };
 #endif //KEYKG_MAIN_WEIGHTEDGRAPH_WEIGHTEDEDGE_H_

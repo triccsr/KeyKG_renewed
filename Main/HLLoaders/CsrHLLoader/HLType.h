@@ -10,7 +10,7 @@ class HLType {
   VType _prevEdge; //the previous edge index of the path from label to current
   double _dist; //the distance from label to current
  public:
-  HLType() = delete;
+  HLType() = default;
   HLType(VType label, VType prevEdge, double dist) : _label(label), _prevEdge(prevEdge), _dist(dist) {}
   VType label() const { return _label; }
   VType previous_edge() const { return _prevEdge; }

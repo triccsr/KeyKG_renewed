@@ -1,0 +1,5 @@
+add_library(HLLoaders INTERFACE)
+add_subdirectory(AbstractHLLoader)
+add_subdirectory(CsrHLLoader)
+add_subdirectory(TestHLLoader)
+target_link_libraries(HLLoaders INTERFACE CsrHLLoader AbstractHLLoader TestHLLoader)

@@ -8,10 +8,11 @@
 #include <iostream>
 #include "WeightedGraph.h"
 #include "RandomDouble.h"
+#include "OpenFile.h"
 
 WeightedGraph::WeightedGraph(const char *weightedGraphFilePath) {
   outEdges = nullptr;
-  FILE *weightedGraphFile = fopen(weightedGraphFilePath, "r");
+  FILE *weightedGraphFile = OpenFile::open_r(weightedGraphFilePath);
   load_weighted_graph_file(weightedGraphFile);
   fclose(weightedGraphFile);
 }
@@ -83,4 +84,21 @@ void WeightedGraph::gen_weighted_graph_file(const char *unweightedGraphFilePath,
 
 VType WeightedGraph::out_degree_of(VType ver) const {
   return (VType)outEdges[ver].size();
+}
+WeightedEdge WeightedGraph::get_edge_info(EType edgeIndex) const{
+  return edges[static_cast<unsigned long long int>(edgeIndex)];
+}
+VType WeightedGraph::get_the_other_endpoint(VType src, EType edgeIndex) const{
+  VType u=edges[static_cast<unsigned long long int>(edgeIndex)].u();
+  VType v=edges[static_cast<unsigned long long int>(edgeIndex)].v();
+  if(u==src)
+    return v;
+  if(v==src)
+    return u;
+  try{
+    throw std::invalid_argument("No endpoint in edge");
+  }
+  catch (const std::exception &e){
+    std::cerr<<e.what()<<std::endl;
+  }
 }
