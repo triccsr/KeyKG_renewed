@@ -1,8 +1,11 @@
-add_executable(Main main.cpp
-        Run.cpp
-        Run.h)
 add_subdirectory(HLLoaders)
 add_subdirectory(WeightedGraph)
 add_subdirectory(Utils)
 add_subdirectory(HubLabelGenerator)
-target_link_libraries(Main PRIVATE HubLabelGenerator HLLoaders)
+configure_file(config.h.in config.h)
+
+add_executable(Main main.cpp
+        Run.cpp
+        Run.h)
+target_include_directories(Main PUBLIC "${PROJECT_BINARY_DIR}/Main")
+target_link_libraries(Main PRIVATE HubLabelGenerator HLLoaders RandomGraph)

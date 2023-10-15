@@ -1,0 +1,2 @@
+// PATH of project
+#define PROJECT_PATH "@PROJECT_SOURCE_DIR@"

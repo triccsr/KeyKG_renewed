@@ -9,7 +9,7 @@
 #include "WeightedGraph.h"
 
 class BC{
-    uint64_t *spCount;
+    int64_t *spCount;
     double *delta;
     double *dis;
     bool *ok;

@@ -7,11 +7,12 @@
 
 #include <cstdio>
 #include <vector>
+#include <set>
 #include "HubLabelGeneratorAbstract.h"
 #include "WeightedGraphDef.h"
 #include "WeightedGraph.h"
 
-class DijkstraBasedAbstract : HubLabelGeneratorAbstract{
+ class DijkstraBasedAbstract : public HubLabelGeneratorAbstract{
  private:
   class HLType {
     VType _label;
@@ -37,6 +38,7 @@ class DijkstraBasedAbstract : HubLabelGeneratorAbstract{
   virtual std::vector<VType> get_ordered_vertices()=0;
  public:
   void gen_hub_label_file(const char* dstPath,const char *wgFilePath) override;
+  DijkstraBasedAbstract()=default;
 };
 
 #endif //KEYKG_HUBLABELGENERATOR_DIJKSTRABASED_DIJKSTRABASEDABSTRACT_H_

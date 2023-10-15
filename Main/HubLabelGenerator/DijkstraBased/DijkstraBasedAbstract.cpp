@@ -24,9 +24,9 @@ double DijkstraBasedAbstract::get_dist(VType u, VType v, const std::set<HLType> 
 
 void DijkstraBasedAbstract::dijkstra_in_order(const std::vector<VType> &orderedVertices) {
   std::vector<bool> visited(static_cast<size_t>(ww.vertex_count()), false);
-  std::vector<EType> pred(static_cast<size_t>(ww.vertex_count(), -1));
+  std::vector<EType> pred(static_cast<size_t>(ww.vertex_count()), -1);
   std::vector<double> d(static_cast<size_t>(ww.vertex_count()), doubleINF);
-
+  L=new std::set<HLType>[ww.vertex_count()];
   VType vIndex = 0;
   for (auto &v : orderedVertices) {
     std::fprintf(stderr, "%d: vertex %d dijkstra starts\n", vIndex, v);
@@ -85,13 +85,14 @@ void DijkstraBasedAbstract::write_hub_label2file(const char *dstFilePath) {
       fprintf(dstFile, "%d %d %.8f  ", element.label(), element.previous_edge(), element.dist());
     }
     fprintf(dstFile, "\n");
-    std::cerr << "Finish writing hub label file, close file and delete L" << std::endl;
-  delete L;
+  }
+  delete[] L;
+  std::cerr << "Finish writing hub label file, close file and delete L" << std::endl;
   fclose(dstFile);
 }
 
-void DijkstraBasedAbstract::gen_hub_label_file(const char *dstPath, const char *wgFilePath) {
-  ww=WeightedGraph(wgFilePath);
+void DijkstraBasedAbstract::gen_hub_label_file(const char *dstPath,const char *wgFilePath) {
+  ww.load_weighted_graph_file(wgFilePath);
   std::vector<VType> orderedVertices=get_ordered_vertices();
   dijkstra_in_order(orderedVertices);
   write_hub_label2file(dstPath);

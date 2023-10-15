@@ -284,10 +284,13 @@ KeyKG_IS_TOP_LEVEL:STATIC=ON
 KeyKG_SOURCE_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed
 
 //Dependencies for the target
+RandomGraph_LIB_DEPENDS:STATIC=general;OpenFile;general;RandomMT;
+
+//Dependencies for the target
 TestHLLoader_LIB_DEPENDS:STATIC=general;WeightedGraph;general;AbstractHLLoader;
 
 //Dependencies for the target
-WeightedGraph_LIB_DEPENDS:STATIC=general;RandomDouble;general;Timer;general;OpenFile;
+WeightedGraph_LIB_DEPENDS:STATIC=general;RandomMT;general;Timer;general;OpenFile;
 
 
 ########################
@@ -400,7 +403,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=17
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

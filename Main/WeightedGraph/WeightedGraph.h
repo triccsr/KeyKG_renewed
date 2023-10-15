@@ -8,19 +8,21 @@
 
 #include <cstdint>
 #include <vector>
+#include <cstdio>
 #include "WeightedOutEdge.h"
 #include "WeightedGraphDef.h"
 #include "WeightedEdge.h"
 
 class WeightedGraph {
-    VType n;
-    std::vector<WeightedOutEdge> *outEdges;
+    VType n{0};
+    std::vector<WeightedOutEdge> *outEdges{nullptr};
     std::vector<WeightedEdge> edges;
-    void load_weighted_graph_file(FILE* weightedGraphFile);
+
 public:
     WeightedGraph()=default;
     explicit WeightedGraph(const char* weightedGraphFilePath);
     ~WeightedGraph();
+    void load_weighted_graph_file(const char *weightedGraphFilePath);
     VType vertex_count() const;
     VType out_degree_of(VType ver) const;
     const std::vector<WeightedOutEdge> & out_edges_of(VType ver) const;

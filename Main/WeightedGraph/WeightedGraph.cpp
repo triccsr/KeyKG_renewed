@@ -7,20 +7,19 @@
 #include <stdexcept>
 #include <iostream>
 #include "WeightedGraph.h"
-#include "RandomDouble.h"
+#include "RandomMT.h"
 #include "OpenFile.h"
 
-WeightedGraph::WeightedGraph(const char *weightedGraphFilePath) {
-  outEdges = nullptr;
-  FILE *weightedGraphFile = OpenFile::open_r(weightedGraphFilePath);
-  load_weighted_graph_file(weightedGraphFile);
-  fclose(weightedGraphFile);
+WeightedGraph::WeightedGraph(const char *weightedGraphFilePath):outEdges(nullptr) {
+  load_weighted_graph_file(weightedGraphFilePath);
+
 }
 WeightedGraph::~WeightedGraph() {
   delete[] outEdges;
 }
 
-void WeightedGraph::load_weighted_graph_file(FILE *weightedGraphFile) {
+void WeightedGraph::load_weighted_graph_file(const char *weightedGraphFilePath) {
+  FILE *weightedGraphFile = OpenFile::open_r(weightedGraphFilePath);
   delete[] outEdges;
   EType m;
   fscanf(weightedGraphFile, "%d%d", &n, &m);
@@ -32,11 +31,12 @@ void WeightedGraph::load_weighted_graph_file(FILE *weightedGraphFile) {
     fscanf(weightedGraphFile, "%d%d%lf", &u, &v, &w);
     outEdges[u].emplace_back(v, w, i);
     outEdges[v].emplace_back(u, w, i);
-    edges[i] = WeightedEdge(i, u, v, w);
+    edges.at(i) = WeightedEdge(i, u, v, w);
   }
   for (VType i = 0; i < n; ++i) {
     outEdges[i].shrink_to_fit();
   }
+  fclose(weightedGraphFile);
 }
 
 VType WeightedGraph::vertex_count() const {
@@ -74,9 +74,9 @@ void WeightedGraph::gen_weighted_graph_file(const char *unweightedGraphFilePath,
     fileM += 1;
   }
   fprintf(dstFile, "%d %d\n", fileN + 1, fileM);
-  RandomDouble rd(0.1, 1000.0, seedU);
+  RandomMT<double> rd(0.1, 1000.0, seedU);
   for (auto uwEdge : uwEdges) {
-    fprintf(dstFile, "%d %d %.6f\n", uwEdge.first, uwEdge.second, rd.rand_double());
+    fprintf(dstFile, "%d %d %.6f\n", uwEdge.first, uwEdge.second, rd.rand_mt());
   }
   fclose(unweightedGraphFile);
   fclose(dstFile);

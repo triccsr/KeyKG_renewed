@@ -1,3 +1,4 @@
-add_subdirectory(RandomDouble)
+add_subdirectory(RandomMT)
 add_subdirectory(Timer)
 add_subdirectory(OpenFile)
+add_subdirectory(RandomGraph)

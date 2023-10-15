@@ -7,13 +7,13 @@
 
 #include "DijkstraBasedAbstract.h"
 
-class SHL : DijkstraBasedAbstract{
+class SHL : public DijkstraBasedAbstract{
  private:
   VType _pivotNum{};
   std::vector<VType> get_ordered_vertices() override;
  public:
-  SHL()=default;
-  explicit SHL(VType pivotNum):_pivotNum(pivotNum){}
+  SHL()=delete;
+  explicit SHL(VType pivotNum): _pivotNum(pivotNum){}
 };
 
 #endif //KEYKG_MAIN_HUBLABELGENERATOR_DIJKSTRABASED_SHL_SHL_H_
