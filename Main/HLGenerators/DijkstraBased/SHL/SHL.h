@@ -5,9 +5,9 @@
 #ifndef KEYKG_MAIN_HUBLABELGENERATOR_DIJKSTRABASED_SHL_SHL_H_
 #define KEYKG_MAIN_HUBLABELGENERATOR_DIJKSTRABASED_SHL_SHL_H_
 
-#include "DijkstraBasedAbstract.h"
+#include "AbstractDijkstraBased.h"
 
-class SHL : public DijkstraBasedAbstract{
+class SHL : public AbstractDijkstraBased{
  private:
   VType _pivotNum{};
   std::vector<VType> get_ordered_vertices() override;

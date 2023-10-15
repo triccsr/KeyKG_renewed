@@ -5,10 +5,10 @@
 #include <set>
 #include <queue>
 #include <iostream>
-#include "DijkstraBasedAbstract.h"
+#include "AbstractDijkstraBased.h"
 #include "OpenFile.h"
 
-double DijkstraBasedAbstract::get_dist(VType u, VType v, const std::set<HLType> &uHL, const std::set<HLType> &vHL) const {
+double AbstractDijkstraBased::get_dist(VType u, VType v, const std::set<HLType> &uHL, const std::set<HLType> &vHL) const {
   double res = doubleINF;
   for (auto uIt = uHL.begin(), vIt = vHL.begin(); uIt != uHL.end() && vIt != vHL.end(); ++uIt) {
     while (vIt != vHL.end() && vIt->label() < uIt->label()) {
@@ -22,7 +22,7 @@ double DijkstraBasedAbstract::get_dist(VType u, VType v, const std::set<HLType> 
   return res;
 }
 
-void DijkstraBasedAbstract::dijkstra_in_order(const std::vector<VType> &orderedVertices) {
+void AbstractDijkstraBased::dijkstra_in_order(const std::vector<VType> &orderedVertices) {
   std::vector<bool> visited(static_cast<size_t>(ww.vertex_count()), false);
   std::vector<EType> pred(static_cast<size_t>(ww.vertex_count()), -1);
   std::vector<double> d(static_cast<size_t>(ww.vertex_count()), doubleINF);
@@ -75,7 +75,7 @@ void DijkstraBasedAbstract::dijkstra_in_order(const std::vector<VType> &orderedV
   std::cerr << "Finish calculating hub labels." << std::endl;
 }
 
-void DijkstraBasedAbstract::write_hub_label2file(const char *dstFilePath) {
+void AbstractDijkstraBased::write_hub_label2file(const char *dstFilePath) {
   FILE* dstFile=OpenFile::open_w(dstFilePath);
   std::cerr<<"Start writing hub label to file..."<<std::endl;
   fprintf(dstFile, "%d\n", ww.vertex_count()); //First line an integer n, means that there are n vertices in the graph.
@@ -91,7 +91,7 @@ void DijkstraBasedAbstract::write_hub_label2file(const char *dstFilePath) {
   fclose(dstFile);
 }
 
-void DijkstraBasedAbstract::gen_hub_label_file(const char *dstPath,const char *wgFilePath) {
+void AbstractDijkstraBased::gen_hub_label_file(const char *dstPath, const char *wgFilePath) {
   ww.load_weighted_graph_file(wgFilePath);
   std::vector<VType> orderedVertices=get_ordered_vertices();
   dijkstra_in_order(orderedVertices);

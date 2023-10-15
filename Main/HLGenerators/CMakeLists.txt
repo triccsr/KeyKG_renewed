@@ -1,0 +1,4 @@
+add_library(HLGenerators INTERFACE)
+add_subdirectory(DijkstraBased)
+add_subdirectory(AbstractHLGenerator)
+target_link_libraries(HLGenerators INTERFACE AbstractHLGenerator DijkstraBased)

@@ -5,9 +5,9 @@
 #ifndef KEYKG_MAIN_HUBLABELGENERATOR_DIJKSTRABASED_PLL_PLL_H_
 #define KEYKG_MAIN_HUBLABELGENERATOR_DIJKSTRABASED_PLL_PLL_H_
 
-#include "DijkstraBasedAbstract.h"
+#include "AbstractDijkstraBased.h"
 
-class PLL : public DijkstraBasedAbstract{
+class PLL : public AbstractDijkstraBased{
     std::vector<VType> get_ordered_vertices() override;
  public:
   PLL()=delete;

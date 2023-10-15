@@ -1,0 +1,5 @@
+add_library(SHL SHL.cpp SHL.h)
+add_subdirectory(BC)
+target_link_libraries(SHL PRIVATE BC)
+target_link_libraries(SHL PUBLIC AbstractDijkstraBased)
+target_include_directories(PLL PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

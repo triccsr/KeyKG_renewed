@@ -8,11 +8,11 @@
 #include <cstdio>
 #include <vector>
 #include <set>
-#include "HubLabelGeneratorAbstract.h"
+#include "AbstractHLGenerator.h"
 #include "WeightedGraphDef.h"
 #include "WeightedGraph.h"
 
- class DijkstraBasedAbstract : public HubLabelGeneratorAbstract{
+ class AbstractDijkstraBased : public AbstractHLGenerator{
  private:
   class HLType {
     VType _label;
@@ -38,7 +38,7 @@
   virtual std::vector<VType> get_ordered_vertices()=0;
  public:
   void gen_hub_label_file(const char* dstPath,const char *wgFilePath) override;
-  DijkstraBasedAbstract()=default;
+  AbstractDijkstraBased()=default;
 };
 
 #endif //KEYKG_HUBLABELGENERATOR_DIJKSTRABASED_DIJKSTRABASEDABSTRACT_H_

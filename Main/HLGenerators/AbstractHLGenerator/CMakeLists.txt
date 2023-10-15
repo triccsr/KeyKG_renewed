@@ -1,0 +1,2 @@
+add_library(AbstractHLGenerator AbstractHLGenerator.h AbstractHLGenerator.cpp)
+target_include_directories(AbstractHLGenerator INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})

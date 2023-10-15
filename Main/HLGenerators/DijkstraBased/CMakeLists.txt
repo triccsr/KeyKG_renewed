@@ -1,0 +1,5 @@
+add_library(DijkstraBased INTERFACE)
+add_subdirectory(AbstractDijkstraBased)
+add_subdirectory(PLL)
+add_subdirectory(SHL)
+target_link_libraries(DijkstraBased INTERFACE PLL SHL)

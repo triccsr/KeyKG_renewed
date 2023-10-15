@@ -1,0 +1,4 @@
+add_library(AbstractDijkstraBased AbstractDijkstraBased.cpp AbstractDijkstraBased.h)
+target_link_libraries(AbstractDijkstraBased PUBLIC AbstractHLGenerator WeightedGraph)
+target_link_libraries(AbstractDijkstraBased PRIVATE OpenFile)
+target_include_directories(AbstractDijkstraBased INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})

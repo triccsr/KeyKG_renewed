@@ -2,7 +2,9 @@
 // Created by tricc on 2023/10/13.
 //
 #include <algorithm>
+#include <vector>
 #include "PLL.h"
+#include "WeightedGraphDef.h"
 std::vector<VType> PLL::get_ordered_vertices() {
   std::vector<VType> vertices;
   vertices.resize(static_cast<unsigned long long int>(ww.vertex_count()));

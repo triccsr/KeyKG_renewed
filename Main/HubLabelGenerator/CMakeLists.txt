@@ -1,4 +1,0 @@
-add_library(HubLabelGenerator HubLabelGeneratorAbstract.h)
-add_subdirectory(DijkstraBased)
-target_link_libraries(HubLabelGenerator PUBLIC OpenFile WeightedGraph BC)
-target_include_directories(HubLabelGenerator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
