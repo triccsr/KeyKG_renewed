@@ -6,9 +6,9 @@
 #include "RandomGraph.h"
 #include "OpenFile.h"
 #include "RandomMT.h"
-void RandomGraph::gen_random_graph(int n, int m, const char *dstPath) {
+void RandomGraph::gen_random_graph(int n, int m, const char *dstPath,uint32_t seedU=2336) {
   FILE* dstFile=OpenFile::open_w(dstPath);
-  RandomMT<int> rd(0,n-1,233);
+  RandomMT<int> rd(0,n-1,seedU);
   std::set<std::pair<int,int>> edgeSet;
   for(int i=0;i<m;++i){
     int u=rd.rand_mt();

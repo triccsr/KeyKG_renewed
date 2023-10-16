@@ -30,7 +30,7 @@ void AbstractDijkstraBased::dijkstra_in_order(const std::vector<VType> &orderedV
   VType vIndex = 0;
   for (auto &v : orderedVertices) {
     std::fprintf(stderr, "%d: vertex %d dijkstra starts\n", vIndex, v);
-    std::vector<VType> allVisited; //used for reverting arrays visited and d
+    std::vector<VType> allVisited; //used for reverting arrays visited[], d[], and pred[]
     std::vector<VType> needUpdateLabel;//vertices whose Label needs updating
     d[v] = 0.0;
     std::priority_queue<std::pair<double, VType>,

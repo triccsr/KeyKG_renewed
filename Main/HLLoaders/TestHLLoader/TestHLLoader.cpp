@@ -16,6 +16,7 @@ double TestHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
   std::vector<EType> prevEdge(static_cast<size_t>(_ww.vertex_count()),-1);
   std::priority_queue<std::pair<double,VType>,std::vector<std::pair<double,VType>>,std::greater<std::pair<double,VType> > > pq;
   dis[u]=0.0;
+  pq.emplace(0.0,u);
   for(VType loop=0;loop<_ww.vertex_count();++loop){
     while(!pq.empty()&&ok.at(pq.top().second))pq.pop();
     if(pq.empty())break;
