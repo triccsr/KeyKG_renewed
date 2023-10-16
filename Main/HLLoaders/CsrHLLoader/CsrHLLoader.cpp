@@ -88,4 +88,12 @@ CsrHLLoader::CsrHLLoader(const WeightedGraph &ww,const char *hlFilePath):_ww(ww)
 CsrHLLoader::~CsrHLLoader() {
   delete[] hl;
 }
+void CsrHLLoader::insert_into_dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
+  for(VType i=0;i<static_cast<VType>(hl[v].size());++i){
+
+  }
+}
+void CsrHLLoader::distance2dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
+
+}
 

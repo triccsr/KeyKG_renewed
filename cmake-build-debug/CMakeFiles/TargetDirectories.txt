@@ -53,3 +53,11 @@ C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/HLGenerators/D
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/HLGenerators/AbstractHLGenerator/CMakeFiles/AbstractHLGenerator.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/HLGenerators/AbstractHLGenerator/CMakeFiles/edit_cache.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/HLGenerators/AbstractHLGenerator/CMakeFiles/rebuild_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/CMakeFiles/edit_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/CMakeFiles/rebuild_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/DhlType/CMakeFiles/DhlType.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/DhlType/CMakeFiles/edit_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/DhlType/CMakeFiles/rebuild_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/GraphTypes/CMakeFiles/GraphTypes.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/GraphTypes/CMakeFiles/edit_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/GraphTypes/CMakeFiles/rebuild_cache.dir

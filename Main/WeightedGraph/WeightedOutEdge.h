@@ -5,7 +5,7 @@
 #ifndef KEYKG_WEIGHTEDOUTEDGE_H
 #define KEYKG_WEIGHTEDOUTEDGE_H
 
-#include "WeightedGraphDef.h"
+#include "../GraphTypes/GraphTypes.h"
 #include <cstdint>
 
 class WeightedOutEdge {

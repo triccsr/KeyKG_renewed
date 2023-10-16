@@ -4,7 +4,7 @@
 
 #ifndef KEYKG_HUBLABEL_HLTYPE_H_
 #define KEYKG_HUBLABEL_HLTYPE_H_
-#include "WeightedGraphDef.h"
+#include "../../GraphTypes/GraphTypes.h"
 class HLType {
   VType _label;
   VType _prevEdge; //the previous edge index of the path from label to current

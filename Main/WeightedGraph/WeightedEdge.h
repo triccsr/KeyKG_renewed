@@ -4,7 +4,7 @@
 
 #ifndef KEYKG_MAIN_WEIGHTEDGRAPH_WEIGHTEDEDGE_H_
 #define KEYKG_MAIN_WEIGHTEDGRAPH_WEIGHTEDEDGE_H_
-#include "WeightedGraphDef.h"
+#include "../GraphTypes/GraphTypes.h"
 class WeightedEdge{
   EType _edgeIndex;
   VType _u,_v;

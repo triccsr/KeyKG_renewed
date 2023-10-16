@@ -10,7 +10,7 @@
 #include <vector>
 #include <cstdio>
 #include "WeightedOutEdge.h"
-#include "WeightedGraphDef.h"
+#include "../GraphTypes/GraphTypes.h"
 #include "WeightedEdge.h"
 
 class WeightedGraph {

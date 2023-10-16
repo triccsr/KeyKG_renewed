@@ -15,11 +15,15 @@ class CsrHLLoader : AbstractHLLoader {
   ArrayOnHeap<HLType> *hl;
   const WeightedGraph &_ww;
  public:
-  double get_dist(int u, int v) override;
-  double get_sp(VType u, VType v, std::vector<EType> &edges) override;
   CsrHLLoader()=delete;
   explicit CsrHLLoader(const WeightedGraph &ww,const char *hlFilePath);
   ~CsrHLLoader();
+
+  double get_dist(int u, int v) override;
+  double get_sp(VType u, VType v, std::vector<EType> &edges) override;
+
+  void insert_into_dhl(VType v, ArrayOnHeap<DhlType> &dhl) override;
+  void distance2dhl(VType v, ArrayOnHeap<DhlType> &dhl) override;
 };
 
 #endif //KEYKG_MAIN_HLLOADERS_CSRHLLOADER_CSRHLLOADER_H_

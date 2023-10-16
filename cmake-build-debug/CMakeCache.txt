@@ -18,7 +18,7 @@
 AbstractDijkstraBased_LIB_DEPENDS:STATIC=general;AbstractHLGenerator;general;WeightedGraph;general;OpenFile;
 
 //Dependencies for the target
-AbstractHLLoader_LIB_DEPENDS:STATIC=general;WeightedGraph;
+AbstractHLLoader_LIB_DEPENDS:STATIC=general;WeightedGraph;general;ArrayOnHeap;general;DhlType;
 
 //Dependencies for the target
 BC_LIB_DEPENDS:STATIC=general;WeightedGraph;
@@ -296,7 +296,7 @@ SHL_LIB_DEPENDS:STATIC=general;BC;general;AbstractDijkstraBased;
 TestHLLoader_LIB_DEPENDS:STATIC=general;WeightedGraph;general;AbstractHLLoader;
 
 //Dependencies for the target
-WeightedGraph_LIB_DEPENDS:STATIC=general;RandomMT;general;Timer;general;OpenFile;
+WeightedGraph_LIB_DEPENDS:STATIC=general;RandomMT;general;Timer;general;OpenFile;general;GraphTypes;
 
 
 ########################
@@ -409,7 +409,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=20
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=23
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -2,6 +2,7 @@ add_subdirectory(HLLoaders)
 add_subdirectory(WeightedGraph)
 add_subdirectory(Utils)
 add_subdirectory(HLGenerators)
+add_subdirectory(Types)
 configure_file(config.h.in config.h)
 
 add_executable(Main main.cpp
