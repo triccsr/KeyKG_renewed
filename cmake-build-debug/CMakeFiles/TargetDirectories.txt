@@ -31,6 +31,9 @@ C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Utils/OpenFile
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Utils/RandomGraph/CMakeFiles/RandomGraph.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Utils/RandomGraph/CMakeFiles/edit_cache.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Utils/RandomGraph/CMakeFiles/rebuild_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Utils/ArrayOnHeap/CMakeFiles/ArrayOnHeap.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Utils/ArrayOnHeap/CMakeFiles/edit_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Utils/ArrayOnHeap/CMakeFiles/rebuild_cache.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/HLGenerators/CMakeFiles/edit_cache.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/HLGenerators/CMakeFiles/rebuild_cache.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/HLGenerators/DijkstraBased/CMakeFiles/edit_cache.dir

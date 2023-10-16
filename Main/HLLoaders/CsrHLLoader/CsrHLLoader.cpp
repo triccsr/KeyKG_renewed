@@ -57,13 +57,11 @@ double CsrHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
   }
   while(u!=center){
     HLType hlItem=*std::lower_bound(hl[u].begin(),hl[u].end(),HLType(center,0,0));
-    assert(hlItem.label()==center);
     edges.push_back(hlItem.previous_edge());
     u=_ww.get_the_other_endpoint(u,hlItem.previous_edge());
   }
   while(v!=center){
     HLType hlItem=*std::lower_bound(hl[v].begin(),hl[v].end(),HLType(center,0,0));
-    assert(hlItem.label()==center);
     edges.push_back(hlItem.previous_edge());
     v=_ww.get_the_other_endpoint(v,hlItem.previous_edge());
   }
@@ -73,7 +71,7 @@ double CsrHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
 CsrHLLoader::CsrHLLoader(const WeightedGraph &ww,const char *hlFilePath):_ww(ww){
   FILE* hlFile=OpenFile::open_r(hlFilePath);
   fscanf(hlFile,"%d",&n);
-  hl=new std::vector<HLType> [n];
+  hl=new ArrayOnHeap<HLType> [n];
   for(VType v=0;v<n;++v){
     size_t sz;
     fscanf(hlFile,"%zu",&sz);

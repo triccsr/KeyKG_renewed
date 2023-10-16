@@ -8,9 +8,11 @@
 #include "AbstractHLLoader.h"
 #include "HLType.h"
 #include "WeightedGraph.h"
+#include "ArrayOnHeap.h"
+
 class CsrHLLoader : AbstractHLLoader {
   VType n;
-  std::vector<HLType> *hl;
+  ArrayOnHeap<HLType> *hl;
   const WeightedGraph &_ww;
  public:
   double get_dist(int u, int v) override;

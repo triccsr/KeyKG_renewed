@@ -9,7 +9,7 @@
 #include "config.h"
 #include "PLL.h"
 
-int main(){
+int main(int argc, char **argv){
   int n,m;
   uint32_t seed;
   scanf("%d%d%u",&n,&m,&seed);
