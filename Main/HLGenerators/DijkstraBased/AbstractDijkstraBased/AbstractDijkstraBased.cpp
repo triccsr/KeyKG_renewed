@@ -92,7 +92,8 @@ void AbstractDijkstraBased::write_hub_label2file(const char *dstFilePath) {
 }
 
 void AbstractDijkstraBased::gen_hub_label_file(const char *dstPath, const char *wgFilePath) {
-  ww.load_weighted_graph_file(wgFilePath);
+  //ww.load_weighted_graph_file(wgFilePath);
+
   std::vector<VType> orderedVertices=get_ordered_vertices();
   dijkstra_in_order(orderedVertices);
   write_hub_label2file(dstPath);

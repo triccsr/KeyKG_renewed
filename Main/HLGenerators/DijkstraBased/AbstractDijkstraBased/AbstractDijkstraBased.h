@@ -9,7 +9,7 @@
 #include <vector>
 #include <set>
 #include "AbstractHLGenerator.h"
-#include "../../../GraphTypes/GraphTypes.h"
+#include "GraphTypes.h"
 #include "WeightedGraph.h"
 
  class AbstractDijkstraBased : public AbstractHLGenerator{

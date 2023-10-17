@@ -61,3 +61,9 @@ C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/DhlType/
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/GraphTypes/CMakeFiles/GraphTypes.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/GraphTypes/CMakeFiles/edit_cache.dir
 C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/GraphTypes/CMakeFiles/rebuild_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/HLType/CMakeFiles/HLType.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/HLType/CMakeFiles/edit_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/Types/HLType/CMakeFiles/rebuild_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/KeyKG/CMakeFiles/KeyKG.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/KeyKG/CMakeFiles/edit_cache.dir
+C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/Main/KeyKG/CMakeFiles/rebuild_cache.dir

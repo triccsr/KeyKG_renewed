@@ -102,3 +102,6 @@ VType WeightedGraph::get_the_other_endpoint(VType src, EType edgeIndex) const{
     std::cerr<<e.what()<<std::endl;
   }
 }
+WeightedGraph::WeightedGraph(WeightedGraph &&rValue):n(rValue.n),outEdges(rValue.outEdges),edges(std::move(rValue.edges)){
+  rValue.outEdges= nullptr;
+}

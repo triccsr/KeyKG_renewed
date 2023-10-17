@@ -18,16 +18,23 @@ class ArrayOnHeap {
  public:
   ArrayOnHeap():_arr(nullptr),_size(0){};
   explicit ArrayOnHeap(size_t size):_arr(new T[size]),_size(size){}
+  explicit ArrayOnHeap(ArrayOnHeap<T>&& rValue):_arr(rValue._arr),_size(rValue._size){
+    rValue._arr= nullptr;
+    rValue._size=0;
+  }
   explicit ArrayOnHeap(size_t size, T initialValue):_arr(new T[size]),_size(size){
-    if(initialValue==0){
-      memset_all(0);
-    }
     for(size_t i=0;i<_size;++i){
       _arr[i]=initialValue;
     }
   }
   ~ArrayOnHeap(){
     delete[] _arr;
+  }
+  ArrayOnHeap operator = (ArrayOnHeap<T>&& rValue){
+    delete[] _arr;
+    _arr=rValue._arr;
+    _size=rValue._size;
+    rValue=_arr= nullptr;
   }
   void memset_all(int val){
     memset(_arr,val,sizeof(T)*_size);

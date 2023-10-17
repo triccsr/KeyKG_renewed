@@ -13,6 +13,8 @@ class TestHLLoader: AbstractHLLoader{
  public:
   double get_dist(VType u, VType v) override;
   double get_sp(VType u, VType v, std::vector<EType> &edges) override;
+  void get_sp_with_label(VType u, HLType uHL, VType v, HLType vHL, std::vector<EType> &edges) override {};
+  void insert_into_dhl(VType v, ArrayOnHeap<DhlType> &dhl) override{};
   TestHLLoader()=delete;
   explicit TestHLLoader(const WeightedGraph &ww);
 };

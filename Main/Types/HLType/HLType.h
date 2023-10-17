@@ -4,11 +4,11 @@
 
 #ifndef KEYKG_HUBLABEL_HLTYPE_H_
 #define KEYKG_HUBLABEL_HLTYPE_H_
-#include "../../GraphTypes/GraphTypes.h"
+#include "GraphTypes.h"
 class HLType {
-  VType _label;
-  VType _prevEdge; //the previous edge index of the path from label to current
-  double _dist; //the distance from label to current
+  VType _label{-1};
+  VType _prevEdge{-1}; //the previous edge index of the path from label to current
+  double _dist{1e16}; //the distance from label to current
  public:
   HLType() = default;
   HLType(VType label, VType prevEdge, double dist) : _label(label), _prevEdge(prevEdge), _dist(dist) {}

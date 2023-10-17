@@ -22,12 +22,12 @@ double CsrHLLoader::get_dist(int u, int v) {
 
 double CsrHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
   if(u==v){
-    edges.clear();
+    //edges.clear();
     return 0.0;
   }
   double minDist=1e16;
   VType center=-1;
-  EType uFirstEdge=-1, vFirstEdge=-1;
+  HLType uHL(-1,-1,1e16),vHL(-1,-1,1e16);
   for(size_t i=0,j=0;i<hl[u].size()&&j<hl[v].size();++i){
     while(j<hl[v].size()&&hl[v][j].label()<hl[u][i].label()){
       ++j;
@@ -38,34 +38,33 @@ double CsrHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
       if(tmpDist<minDist){
         minDist=tmpDist;
         center=hl[u][i].label();
-        uFirstEdge=(u==center)?(-1):hl[u][i].previous_edge();
-        vFirstEdge=(v==center)?(-1):hl[v][j].previous_edge();
+        uHL=hl[u][i];
+        vHL=hl[v][j];
       }
     }
   }
   if(center==-1)
     return minDist;
-  edges.clear();
-
-  if(uFirstEdge!=-1){
-    edges.push_back(uFirstEdge);
-    u=_ww.get_the_other_endpoint(u,uFirstEdge);
-  }
-  if(vFirstEdge!=-1){
-    edges.push_back(vFirstEdge);
-    v=_ww.get_the_other_endpoint(v,vFirstEdge);
-  }
-  while(u!=center){
-    HLType hlItem=*std::lower_bound(hl[u].begin(),hl[u].end(),HLType(center,0,0));
-    edges.push_back(hlItem.previous_edge());
-    u=_ww.get_the_other_endpoint(u,hlItem.previous_edge());
-  }
-  while(v!=center){
-    HLType hlItem=*std::lower_bound(hl[v].begin(),hl[v].end(),HLType(center,0,0));
-    edges.push_back(hlItem.previous_edge());
-    v=_ww.get_the_other_endpoint(v,hlItem.previous_edge());
-  }
+  get_sp_with_label(u,uHL,v,vHL,edges);
   return minDist;
+}
+
+void CsrHLLoader::get_path_to_label(VType u, HLType uHL, std::vector<EType> &edges) {
+  VType center=uHL.label();
+  while(uHL.previous_edge()!=-1){
+    edges.push_back(uHL.previous_edge());
+    u=_ww.get_the_other_endpoint(u,uHL.previous_edge());
+    if(u==center){
+      break;
+    }
+    uHL=*std::lower_bound(hl[u].begin(),hl[u].end(),HLType(center,0,0));;
+  }
+}
+
+void CsrHLLoader::get_sp_with_label(VType u, HLType uHL, VType v, HLType vHL, std::vector<EType> &edges) {
+  //edges.clear();
+  get_path_to_label(u,uHL,edges);
+  get_path_to_label(v,vHL,edges);
 }
 
 CsrHLLoader::CsrHLLoader(const WeightedGraph &ww,const char *hlFilePath):_ww(ww){
@@ -90,10 +89,27 @@ CsrHLLoader::~CsrHLLoader() {
 }
 void CsrHLLoader::insert_into_dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
   for(VType i=0;i<static_cast<VType>(hl[v].size());++i){
-
+    size_t label= static_cast<size_t>(hl[v][i].label());
+    if(hl[v][i].dist() < dhl[label].min_hl().dist()){
+      dhl[label]= DhlType(v,hl[v][i]);
+    }
   }
 }
-void CsrHLLoader::distance2dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
-
+std::pair<HLType,DhlType> CsrHLLoader::get_min_dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
+  double minDist=1e16;
+  std::pair<HLType,DhlType> res;
+  for(VType i=0;i<static_cast<VType>(hl[v].size());++i){
+    double currDist=hl[v][i].dist()+dhl[static_cast<size_t>(hl[v][i].label())].min_hl().dist();
+    if(currDist<minDist){
+      minDist=currDist;
+      res.first=hl[v][i];
+      res.second=dhl[static_cast<size_t>(hl[v][i].label())];
+    }
+  }
+  return res;
 }
+
+
+
+
 

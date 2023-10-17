@@ -1,2 +1,3 @@
 add_subdirectory(DhlType)
 add_subdirectory(GraphTypes)
+add_subdirectory(HLType)

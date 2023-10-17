@@ -18,7 +18,7 @@
 AbstractDijkstraBased_LIB_DEPENDS:STATIC=general;AbstractHLGenerator;general;WeightedGraph;general;OpenFile;
 
 //Dependencies for the target
-AbstractHLLoader_LIB_DEPENDS:STATIC=general;WeightedGraph;general;ArrayOnHeap;general;DhlType;
+AbstractHLLoader_LIB_DEPENDS:STATIC=general;WeightedGraph;general;ArrayOnHeap;general;DhlType;general;HLType;
 
 //Dependencies for the target
 BC_LIB_DEPENDS:STATIC=general;WeightedGraph;
@@ -259,6 +259,9 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Dependencies for the target
 CsrHLLoader_LIB_DEPENDS:STATIC=general;AbstractHLLoader;general;OpenFile;general;ArrayOnHeap;
 
+//Dependencies for the target
+DhlType_LIB_DEPENDS:STATIC=general;HLType;
+
 //Value Computed by CMake
 HubLabelGenerator_BINARY_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-debug/HubLabelGenerator
 
@@ -279,6 +282,9 @@ KeyKG_BINARY_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-d
 
 //Value Computed by CMake
 KeyKG_IS_TOP_LEVEL:STATIC=ON
+
+//Dependencies for the target
+KeyKG_LIB_DEPENDS:STATIC=general;WeightedGraph;general;Timer;general;ArrayOnHeap;general;DhlType;
 
 //Value Computed by CMake
 KeyKG_SOURCE_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed
@@ -409,7 +415,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=23
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=25
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
