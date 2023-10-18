@@ -9,7 +9,7 @@ class DhlType{
   VType _minVertexIndex{-1};
   HLType _minHL;
  public:
-  DhlType()=default;
+  DhlType():_minVertexIndex(-1),_minHL(){};
   explicit DhlType(VType vIndex,HLType hl):_minVertexIndex(vIndex),_minHL(hl){}
   VType min_vertex_index() const{return _minVertexIndex;}
   HLType min_hl() const{return _minHL;}

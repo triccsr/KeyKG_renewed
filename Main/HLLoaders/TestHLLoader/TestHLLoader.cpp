@@ -5,12 +5,12 @@
 #include <cassert>
 #include <queue>
 #include "TestHLLoader.h"
-double TestHLLoader::get_dist(VType u, VType v) { //dijkstra
+double TestHLLoader::get_dist(VType u, VType v) const{ //dijkstra
   std::vector<EType> uselessEdges;
   double res=get_sp(u,v,uselessEdges);
   return res;
 }
-double TestHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
+double TestHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) const{
   std::vector<double> dis(static_cast<size_t>(_ww.vertex_count()),1e16);
   std::vector<bool> ok(static_cast<size_t>(_ww.vertex_count()),false);
   std::vector<EType> prevEdge(static_cast<size_t>(_ww.vertex_count()),-1);

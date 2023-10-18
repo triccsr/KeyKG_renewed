@@ -284,7 +284,7 @@ KeyKG_BINARY_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed/cmake-build-d
 KeyKG_IS_TOP_LEVEL:STATIC=ON
 
 //Dependencies for the target
-KeyKG_LIB_DEPENDS:STATIC=general;WeightedGraph;general;Timer;general;ArrayOnHeap;general;DhlType;
+KeyKG_LIB_DEPENDS:STATIC=general;WeightedGraph;general;Timer;general;ArrayOnHeap;general;DhlType;general;Timer;
 
 //Value Computed by CMake
 KeyKG_SOURCE_DIR:STATIC=C:/Users/tricc/CLionProjects/KeyKG_renewed

@@ -9,13 +9,10 @@
 #include "config.h"
 #include "PLL.h"
 
-int main(int argc, char **argv){
-  int n,m;
-  uint32_t seed;
-  scanf("%d%d%u",&n,&m,&seed);
-  std::string uwgPathString=(std::string(PROJECT_PATH)+std::string("/Resource/test/uwg.txt"));
-  std::string wgPathString=(std::string(PROJECT_PATH)+std::string("/Resource/test/wg.txt"));
-  std::string hlPathString=(std::string(PROJECT_PATH)+std::string("/Resource/test/hl.txt"));
+int test_HLLoader(int n,int m,uint32_t seed){
+  std::string uwgPathString=(std::string(PROJECT_PATH)+std::string("/Resource/testHLLoader/uwg.txt"));
+  std::string wgPathString=(std::string(PROJECT_PATH)+std::string("/Resource/testHLLoader/wg.txt"));
+  std::string hlPathString=(std::string(PROJECT_PATH)+std::string("/Resource/testHLLoader/hl.txt"));
   RandomGraph::gen_random_graph(n,m,uwgPathString.c_str(),seed);
   WeightedGraph::gen_weighted_graph_file(uwgPathString.c_str(),wgPathString.c_str());
   WeightedGraph ww(wgPathString.c_str());

@@ -6,7 +6,7 @@
 #include <cassert>
 #include "CsrHLLoader.h"
 #include "OpenFile.h"
-double CsrHLLoader::get_dist(int u, int v) {
+double CsrHLLoader::get_dist(int u, int v) const{
   double minDist=1e16;
   for(size_t i=0,j=0;i<hl[u].size();++i){
     while(j<hl[v].size()&&hl[v][j].label()<hl[u][i].label()){
@@ -20,7 +20,7 @@ double CsrHLLoader::get_dist(int u, int v) {
   return minDist;
 }
 
-double CsrHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
+double CsrHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) const{
   if(u==v){
     //edges.clear();
     return 0.0;
@@ -49,7 +49,7 @@ double CsrHLLoader::get_sp(VType u, VType v, std::vector<EType> &edges) {
   return minDist;
 }
 
-void CsrHLLoader::get_path_to_label(VType u, HLType uHL, std::vector<EType> &edges) {
+void CsrHLLoader::get_path_to_label(VType u, HLType uHL, std::vector<EType> &edges) const{
   VType center=uHL.label();
   while(uHL.previous_edge()!=-1){
     edges.push_back(uHL.previous_edge());
@@ -61,7 +61,7 @@ void CsrHLLoader::get_path_to_label(VType u, HLType uHL, std::vector<EType> &edg
   }
 }
 
-void CsrHLLoader::get_sp_with_label(VType u, HLType uHL, VType v, HLType vHL, std::vector<EType> &edges) {
+void CsrHLLoader::get_sp_with_label(VType u, HLType uHL, VType v, HLType vHL, std::vector<EType> &edges) const{
   //edges.clear();
   get_path_to_label(u,uHL,edges);
   get_path_to_label(v,vHL,edges);
@@ -87,7 +87,7 @@ CsrHLLoader::CsrHLLoader(const WeightedGraph &ww,const char *hlFilePath):_ww(ww)
 CsrHLLoader::~CsrHLLoader() {
   delete[] hl;
 }
-void CsrHLLoader::insert_into_dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
+void CsrHLLoader::insert_into_dhl(VType v, ArrayOnHeap<DhlType> &dhl) const {
   for(VType i=0;i<static_cast<VType>(hl[v].size());++i){
     size_t label= static_cast<size_t>(hl[v][i].label());
     if(hl[v][i].dist() < dhl[label].min_hl().dist()){
@@ -95,7 +95,7 @@ void CsrHLLoader::insert_into_dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
     }
   }
 }
-std::pair<HLType,DhlType> CsrHLLoader::get_min_dhl(VType v, ArrayOnHeap<DhlType> &dhl) {
+std::pair<HLType,DhlType> CsrHLLoader::get_min_dhl(VType v, ArrayOnHeap<DhlType> &dhl) const {
   double minDist=1e16;
   std::pair<HLType,DhlType> res;
   for(VType i=0;i<static_cast<VType>(hl[v].size());++i){
@@ -107,6 +107,11 @@ std::pair<HLType,DhlType> CsrHLLoader::get_min_dhl(VType v, ArrayOnHeap<DhlType>
     }
   }
   return res;
+}
+void CsrHLLoader::erase_from_dhl(VType v, ArrayOnHeap<DhlType> &dhl) const {
+  for(VType i=0;i<static_cast<VType>(hl[v].size());++i){
+    size_t label= static_cast<size_t>(hl[v][i].label());
+    dhl[label]=DhlType();
 }
 
 

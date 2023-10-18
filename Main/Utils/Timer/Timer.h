@@ -9,8 +9,9 @@
 #include <cstdint>
 
 class Timer {
-    static int64_t milli_stamp();
-    static int64_t micro_stamp();
+ public:
+  static int64_t milli_stamp();
+  static int64_t micro_stamp();
 };
 
 
