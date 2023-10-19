@@ -29,3 +29,11 @@ FILE* OpenFile::open_w(const char *wFilePath) {
   }
   return wFile;
 }
+bool OpenFile::file_exist(const char *checkPath) {
+  FILE* file= fopen(checkPath,"r");
+  if(file){
+    fclose(file);
+    return true;
+  }
+  return false;
+}

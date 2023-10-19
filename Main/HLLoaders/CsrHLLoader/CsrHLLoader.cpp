@@ -109,9 +109,10 @@ std::pair<HLType,DhlType> CsrHLLoader::get_min_dhl(VType v, ArrayOnHeap<DhlType>
   return res;
 }
 void CsrHLLoader::erase_from_dhl(VType v, ArrayOnHeap<DhlType> &dhl) const {
-  for(VType i=0;i<static_cast<VType>(hl[v].size());++i){
-    size_t label= static_cast<size_t>(hl[v][i].label());
-    dhl[label]=DhlType();
+  for(VType i=0;i<static_cast<VType>(hl[v].size());++i) {
+    size_t label = static_cast<size_t>(hl[v][i].label());
+    dhl[label] = DhlType();
+  }
 }
 
 

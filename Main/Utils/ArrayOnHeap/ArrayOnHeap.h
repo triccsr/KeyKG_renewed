@@ -17,7 +17,7 @@ class ArrayOnHeap {
   size_t _size;
  public:
   ArrayOnHeap():_arr(nullptr),_size(0){};
-  explicit ArrayOnHeap(size_t size):_arr(new T[size]),_size(size){}
+  explicit ArrayOnHeap(size_t size):_arr(new T[size]()),_size(size){}
   ArrayOnHeap(ArrayOnHeap<T>&& rValue) noexcept :_arr(rValue._arr),_size(rValue._size){
     rValue._arr= nullptr;
     rValue._size=0;
@@ -34,7 +34,7 @@ class ArrayOnHeap {
     delete[] _arr;
     _arr=rValue._arr;
     _size=rValue._size;
-    rValue=_arr= nullptr;
+    rValue._arr= nullptr;
     return *this;
   }
   void memset_all(int val){
@@ -56,7 +56,7 @@ class ArrayOnHeap {
   }
   size_t size(){return _size;}
   void resize(size_t newSize){
-    T* newArr=new T[newSize];
+    T* newArr=new T[newSize]();
     std::memcpy(newArr,_arr,sizeof(T)*std::min(newSize,_size));
     delete[] _arr;
     _arr=newArr;

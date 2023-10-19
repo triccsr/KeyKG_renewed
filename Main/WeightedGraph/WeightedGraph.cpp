@@ -70,6 +70,7 @@ void WeightedGraph::gen_weighted_graph_file(const char *unweightedGraphFilePath,
   EType fileM = 0;
   while (fscanf(unweightedGraphFile, "%d%d", &u, &v) != EOF) {
     uwEdges.emplace_back(u, v);
+    std::cerr<<"Weighted Graph reading edge: "<<u<<" "<<v<<std::endl;
     fileN = std::max(fileN, std::max(u, v));
     fileM += 1;
   }

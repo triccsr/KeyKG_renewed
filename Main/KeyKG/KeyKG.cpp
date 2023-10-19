@@ -6,14 +6,16 @@
 #include <algorithm>
 #include "KeyKG.h"
 #include "Timer.h"
+#include "OpenFile.h"
 KeyKG::KeyKG(const WeightedGraph &ww,const CsrHLLoader &hlLoader):_g(0),_ww(ww), _hlLoader(hlLoader){
   for(auto & dhl : M){
+    dhl.resize(static_cast<size_t>(_ww.vertex_count()));
     for(VType v=0;v<_ww.vertex_count();++v) {
       dhl[v] = DhlType();
     }
   }
 }
-void KeyKG::add_group(int groupSize, const VType *indexes) {
+void KeyKG::add_group(size_t groupSize, const VType *indexes) {
   try{
     if(_g==9){
       throw std::overflow_error("KeyKG error: Too many groups, cannot add.");
@@ -22,13 +24,14 @@ void KeyKG::add_group(int groupSize, const VType *indexes) {
   catch (const std::overflow_error &e){
     std::cerr<<e.what()<<std::endl;
   }
-  K[_g].resize(static_cast<size_t>(groupSize));
-  for(int i=0; i<groupSize; ++i){
+  K[_g].resize(groupSize);
+  for(size_t i=0; i<groupSize; ++i){
     K[_g][i]=indexes[i];
   }
   ++_g;
 }
 void KeyKG::run(const char *outFile) {
+  FILE* out=OpenFile::open_w(outFile);
   int64_t startTime=Timer::micro_stamp();
   // construct dynamic HL for key sets K[1,_g)
   for(int i=1;i<_g;++i){
@@ -141,6 +144,32 @@ void KeyKG::run(const char *outFile) {
   int64_t endTime=Timer::micro_stamp();
   int64_t runTime=endTime-startTime;
   std::cerr<<"group number = "<<_g<<", run time = "<<runTime/1000<<"."<<runTime%1000<<"ms"<<std::endl;
+
+  fprintf(out,"group number: %d\n",_g);
+
+  fprintf(out,"run time: %lld.%lld ms\n",runTime/1000,runTime%1000);
+  fprintf(out,"weight: %.6f\n",minTreeWeight);
+
+  fprintf(out,"vertices: ");
+  for(VType v:minTreeVertices){
+    fprintf(out,"%d ",v);
+  }
+  fprintf(out,"\n");
+
+  fprintf(out,"edges: ");
+  for(EType e:minTreeEdges){
+    fprintf(out,"<%d: %d %d %.6f> ",e,_ww.get_edge_info(e).u(),_ww.get_edge_info(e).v(),_ww.get_edge_info(e).weight());
+  }
+  fprintf(out,"\n");
+
+  fprintf(out,"groups:\n");
+  for(auto &group:K){
+    for(VType v:group){
+      fprintf(out,"%d ",v);
+    }
+    fprintf(out,"\n");
+  }
+  fclose(out);
 }
 int KeyKG::group_number() const {
   return _g;
