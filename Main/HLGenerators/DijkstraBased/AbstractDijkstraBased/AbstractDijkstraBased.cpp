@@ -70,6 +70,7 @@ void AbstractDijkstraBased::dijkstra_in_order(const std::vector<VType> &orderedV
                  vIndex,
                  v,
                  needUpdateLabel.size());
+    std::fflush(stderr);
     ++vIndex;
   }
   std::cerr << "Finish calculating hub labels." << std::endl;
@@ -77,7 +78,7 @@ void AbstractDijkstraBased::dijkstra_in_order(const std::vector<VType> &orderedV
 
 void AbstractDijkstraBased::write_hub_label2file(const char *dstFilePath) {
   FILE* dstFile=OpenFile::open_w(dstFilePath);
-  std::cerr<<"Start writing hub label to file..."<<std::endl;
+  std::cerr<<"Start writing hub label to file..."<<std::endl<<std::flush;
   fprintf(dstFile, "%d\n", ww.vertex_count()); //First line an integer n, means that there are n vertices in the graph.
   for (VType i = 0; i < ww.vertex_count(); ++i) {
     fprintf(dstFile, "%zu  ", L[i].size());
@@ -87,13 +88,12 @@ void AbstractDijkstraBased::write_hub_label2file(const char *dstFilePath) {
     fprintf(dstFile, "\n");
   }
   delete[] L;
-  std::cerr << "Finish writing hub label file, close file and delete L" << std::endl;
+  std::cerr << "Finish writing hub label file, close file and delete L" << std::endl<<std::flush;
   fclose(dstFile);
 }
 
 void AbstractDijkstraBased::gen_hub_label_file(const char *dstPath, const char *wgFilePath) {
-  //ww.load_weighted_graph_file(wgFilePath);
-
+  ww.load_weighted_graph_file(wgFilePath);
   std::vector<VType> orderedVertices=get_ordered_vertices();
   dijkstra_in_order(orderedVertices);
   write_hub_label2file(dstPath);

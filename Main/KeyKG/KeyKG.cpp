@@ -143,11 +143,13 @@ void KeyKG::run(const char *outFile) {
   }
   int64_t endTime=Timer::micro_stamp();
   int64_t runTime=endTime-startTime;
-  std::cerr<<"group number = "<<_g<<", run time = "<<runTime/1000<<"."<<runTime%1000<<"ms"<<std::endl;
+  //std::cerr<<"group number = "<<_g<<", run time = "<<runTime/1000<<"."<<runTime%1000<<"ms"<<std::endl;
+  fprintf(stderr,"group number = %d, run time = %lld.%03lld ms\n",_g,runTime/1000,runTime%1000);
+  fflush(stderr);
 
   fprintf(out,"group number: %d\n",_g);
 
-  fprintf(out,"run time: %lld.%lld ms\n",runTime/1000,runTime%1000);
+  fprintf(out,"run time: %lld.%03lld ms\n",runTime/1000,runTime%1000);
   fprintf(out,"weight: %.6f\n",minTreeWeight);
 
   fprintf(out,"vertices: ");
@@ -163,8 +165,8 @@ void KeyKG::run(const char *outFile) {
   fprintf(out,"\n");
 
   fprintf(out,"groups:\n");
-  for(auto &group:K){
-    for(VType v:group){
+  for(int i=0;i<_g;++i){
+    for(VType v:K[i]){
       fprintf(out,"%d ",v);
     }
     fprintf(out,"\n");

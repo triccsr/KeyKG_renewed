@@ -21,7 +21,7 @@ class WeightedGraph {
 public:
     WeightedGraph()=default;
     explicit WeightedGraph(const char* weightedGraphFilePath);
-    explicit WeightedGraph(WeightedGraph&& rValue);
+    WeightedGraph(WeightedGraph&& rValue) noexcept ;
     ~WeightedGraph();
     void load_weighted_graph_file(const char *weightedGraphFilePath);
     VType vertex_count() const;

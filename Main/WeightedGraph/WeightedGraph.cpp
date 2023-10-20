@@ -68,9 +68,10 @@ void WeightedGraph::gen_weighted_graph_file(const char *unweightedGraphFilePath,
   VType u, v;
   VType fileN = 0;
   EType fileM = 0;
+  std::cerr<<"Weighted Graph starts reading edge."<<std::endl;
+  fflush(stderr);
   while (fscanf(unweightedGraphFile, "%d%d", &u, &v) != EOF) {
     uwEdges.emplace_back(u, v);
-    std::cerr<<"Weighted Graph reading edge: "<<u<<" "<<v<<std::endl;
     fileN = std::max(fileN, std::max(u, v));
     fileM += 1;
   }
@@ -79,6 +80,8 @@ void WeightedGraph::gen_weighted_graph_file(const char *unweightedGraphFilePath,
   for (auto uwEdge : uwEdges) {
     fprintf(dstFile, "%d %d %.6f\n", uwEdge.first, uwEdge.second, rd.rand_mt());
   }
+  fprintf(stderr,"Weighted Graph finishes reading edge, %d vertices, %d edges\n",fileN,fileM);
+  fflush(stderr);
   fclose(unweightedGraphFile);
   fclose(dstFile);
 }
@@ -103,6 +106,6 @@ VType WeightedGraph::get_the_other_endpoint(VType src, EType edgeIndex) const{
     std::cerr<<e.what()<<std::endl;
   }
 }
-WeightedGraph::WeightedGraph(WeightedGraph &&rValue):n(rValue.n),outEdges(rValue.outEdges),edges(std::move(rValue.edges)){
+WeightedGraph::WeightedGraph(WeightedGraph &&rValue) noexcept:n(rValue.n),outEdges(rValue.outEdges),edges(std::move(rValue.edges)){
   rValue.outEdges= nullptr;
 }
